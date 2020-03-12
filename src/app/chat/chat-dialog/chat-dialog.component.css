@@ -192,3 +192,9 @@ input::placeholder {
 
 
 .button3 {border-radius: 8px;}
+
+textarea {
+  resize: none;
+}
+
+
