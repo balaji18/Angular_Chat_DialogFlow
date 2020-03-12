@@ -1,0 +1,47 @@
+<!--<div class="header"></div>-->
+
+<div class="container">
+  <div class="row">
+    <button class="open-button" (click)="openForm()">Chat</button>
+
+  </div>
+</div>
+
+
+<div class="modal fade" bsModal tabindex="-1" role="dialog" #chatModal="bs-modal" [config]="{backdrop: 'static',keyboard: false}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header draggable-handle">
+        <h4 class="header">Angular Chat Bot</h4>
+        <button type="button" class="close outline" data-dismiss="modal" aria-label="Close" (click)="chatModal.hide();clearOldMessage()"><span aria-hidden="true">×</span></button>
+      </div>
+      <div class="modal-body angular-chat ">
+        <div class="angularbot-scroll angularbot-scroll-table" id="chatId">
+          <ng-container *ngFor="let message of messages | async">
+            <div class="message"   [ngClass]="{ 'from': message.sentBy === 'bot', 'to':   message.sentBy === 'user' }">
+              {{ message.content }}
+            </div>
+          </ng-container>
+        </div>
+        <div>
+          <div class="row">
+            <div class="col-11">
+              <label>Your Message</label>
+              <textarea placeholder="Start typing here..." [(ngModel)]="formValue"  (keyup)="canSend($event)" (keydown)="textValidation($event);" id="chatText">
+              </textarea>
+            </div>
+            <div class="col-1">
+              <button class="btn chat-btn-icon" [disabled]='!formValue'(click)="sendMessage();">
+                <img  src="assets/images/send.png" width="45px">
+              </button>
+            </div>
+          </div>
+
+
+         <!-- <input [(ngModel)]="formValue" (keyup)="canSend($event)" (keydown)="textValidation($event);" id="chatText" type="text">
+          <button class="float-right" [disabled]="!formValue" (click)="sendMessage()">Send</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
