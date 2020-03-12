@@ -189,12 +189,16 @@ input::placeholder {
 .outline{
   outline: none;
 }
-
-
 .button3 {border-radius: 8px;}
 
 textarea {
   resize: none;
 }
 
+ textarea:disabled {
+  cursor: not-allowed;
+}
 
+button:disabled {
+  cursor: not-allowed;
+}

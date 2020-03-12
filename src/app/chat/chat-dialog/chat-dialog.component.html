@@ -20,7 +20,7 @@
           <div class="row">
             <div class="col-11">
               <label>Your Message</label>
-              <textarea placeholder="Start typing here..." [(ngModel)]="formValue"  (keyup)="canSend($event)" (keydown)="textValidation($event);" id="chatText">
+              <textarea placeholder="Start typing here..." [(ngModel)]="formValue"  (keyup)="canSend($event)" (keydown)="textValidation($event);" id="chatText" [disabled]="noInternetConnection">
               </textarea>
             </div>
             <div class="col-1">

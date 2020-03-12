@@ -2,9 +2,8 @@ import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild } from '@ang
 import { ChatService, Message } from '../chat.service';
 import { Observable} from 'rxjs/index';
 import { ModalDirective } from 'ngx-bootstrap';
-// import 'rxjs/add/operator/scan';
-
 import {scan} from 'rxjs/internal/operators';
+import { of} from 'rxjs';
 declare let $: any;
 
 
@@ -16,11 +15,17 @@ declare let $: any;
 export class ChatDialogComponent implements OnInit, AfterViewChecked {
 
   messages: Observable<Message[]>;
+  noInternetConnection = false;
   formValue: string;
   @ViewChild('chatModal', { static: false }) public chatModal: ModalDirective;
   @ViewChild('scrollMe', {static: false}) private myScrollContainer: ElementRef;
 
   constructor(public chat: ChatService) {
+    if (navigator.onLine) {
+      this.noInternetConnection = false;
+    } else {
+      this.noInternetConnection = true;
+    }
   }
 
     ngOnInit() {
@@ -49,6 +54,8 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
   }
 
   clearOldMessage() {
+    // To remove old messages
+    this.messages = of([]);
   }
 
   scrollToBottom(): void {
