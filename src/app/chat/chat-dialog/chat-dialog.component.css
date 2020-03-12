@@ -202,3 +202,16 @@ textarea {
 button:disabled {
   cursor: not-allowed;
 }
+
+.circleUserListImg{
+  height: 40px;
+  width: 40px;
+  background-color: #0ed5ae;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+}
+
+.font20{
+  font-size: 20px;
+}
