@@ -1,12 +1,6 @@
-<!--<div class="header"></div>-->
-
-<div class="container">
-  <div class="row">
-    <button class="open-button" (click)="openForm()">Chat</button>
-  </div>
-</div>
 
 
+<!--Modal-->
 <div class="modal fade" bsModal tabindex="-1" role="dialog" #chatModal="bs-modal" [config]="{backdrop: 'static',keyboard: false}">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -35,12 +29,28 @@
               </button>
             </div>
           </div>
-
-
-         <!-- <input [(ngModel)]="formValue" (keyup)="canSend($event)" (keydown)="textValidation($event);" id="chatText" type="text">
-          <button class="float-right" [disabled]="!formValue" (click)="sendMessage()">Send</button>-->
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
+
+<body>
+  <div class="container py-5 px-4">
+    <!-- For demo purpose-->
+    <header class="text-center">
+      <h1 class="display-4 text-white">Angular ChatBot</h1>
+      <p class="text-white lead mb-0">A chatbot simulates conversations with human users, especially over the Internet.</p>
+    </header>
+  </div>
+  <!--chat icon-->
+  <div class="container ">
+    <div class="row">
+      <button class="open-button font24" (click)="openForm()">Chat <i class='fas fa-comment-dots'></i></button>
+    </div>
+  </div>
+</body>

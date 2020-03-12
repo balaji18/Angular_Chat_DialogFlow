@@ -23,19 +23,18 @@ export class ChatDialogComponent implements OnInit, AfterViewChecked {
   constructor(public chat: ChatService) {
   }
 
-  ngOnInit() {
-   // this.chatModal.show();
+    ngOnInit() {
 
     // appends to array after each new message is added to feedSource
-    this.messages = this.chat.conversation.asObservable().pipe(
-      scan((acc, val) => acc.concat(val))
-    )
-    this.scrollToBottom();
-  }
+      this.messages = this.chat.conversation.asObservable().pipe(
+        scan((acc, val) => acc.concat(val))
+      )
+      this.scrollToBottom();
+    }
 
-  openForm() {
-    this.chatModal.show();
-  }
+    openForm() {
+      this.chatModal.show();
+    }
 
     sendMessage() {
     this.chat.converse(this.formValue);
